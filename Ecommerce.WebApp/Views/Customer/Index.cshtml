@@ -1,13 +1,13 @@
 ﻿@*At First you have to try this (Try-01)*@
 @* --------- Start ------------*@
-<html>
+@*<html>
 
 <head>
 </head>
 <body>
     <h1> Customer Created Successfully!</h1>
 </body>
-</html>
+</html>*@
 
 @*At First you have to try this*@
 @*--------- End ------------*@
@@ -15,7 +15,9 @@
 @*@using Ecommerce.Models;
     @{
         List<Customer> customers = ViewBag.Customers as List<Customer>;
-    }
+    }*@
+
+@model List<Ecommerce.Models.Customer>
 
         <html>
 
@@ -40,7 +42,7 @@
                             <tr> <th>Name</th> <th>Address</th>  </tr>
                         </thead>
                         <tbody>
-                            @foreach (var customer in customers)
+                            @foreach (var customer in Model)
                             {
                                 <tr>
                                     <td>@customer.Name</td>
@@ -52,4 +54,4 @@
                 </div>
             </div>
         </body>
-    </html>*@
+    </html>

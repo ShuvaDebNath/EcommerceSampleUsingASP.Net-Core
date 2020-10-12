@@ -20,8 +20,8 @@ namespace Ecommerce.WebApp.Controllers
         public IActionResult Index()
         {
             var customerList = _customerRepository.GetAll();
-            ViewBag.Customers = customerList;
-            return View();
+            //ViewBag.Customers = customerList;
+            return View(customerList);
         }
         
         public IActionResult Create()
@@ -37,10 +37,11 @@ namespace Ecommerce.WebApp.Controllers
                 bool isAdded = _customerRepository.Add(model);
                 if (isAdded)
                 {
-                    var customer = _customerRepository.GetAll();
-                    ViewBag.Customers = customer;
-                    ViewBag.SuccessMessage = "Saved Successfully";
-                    return View("Index");
+                    return RedirectToAction("Index");
+                    //var customer = _customerRepository.GetAll();
+                    //ViewBag.Customers = customer;
+                    //ViewBag.SuccessMessage = "Saved Successfully";
+                    //return View("Index");
 
                 }
             }
