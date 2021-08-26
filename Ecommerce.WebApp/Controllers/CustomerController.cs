@@ -10,16 +10,16 @@ namespace Ecommerce.WebApp.Controllers
 {
     public class CustomerController : Controller
     {
-        private CustomerRepository _customerRepository;
+        private CustomerRepository customerRepository;
 
         public CustomerController()
         {
-            _customerRepository = new CustomerRepository();
+            customerRepository = new CustomerRepository();
         }
 
         public IActionResult Index()
         {
-            var customerList = _customerRepository.GetAll();
+            var customerList = customerRepository.GetAll();
             //ViewBag.Customers = customerList;
             return View(customerList);
         }
@@ -34,7 +34,7 @@ namespace Ecommerce.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isAdded = _customerRepository.Add(model);
+                bool isAdded = customerRepository.Add(model);
                 if (isAdded)
                 {
                     return RedirectToAction("Index");
